@@ -8,6 +8,7 @@ const App = () => {
         try {
             // Send a GET request to the Azure Function
             const response = await fetch(`https://demo-koaa-roc.azurewebsites.net/api/ReactToNode?code=${functionKey}`);
+            console.debug(`Function Key: ${functionKey}`);
             if (!response.ok) {
                 throw new Error(`Azure Function returned status: ${response.status}`);
             }
