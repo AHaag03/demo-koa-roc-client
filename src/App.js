@@ -5,9 +5,9 @@ const App = () => {
 
     const callAzureFunction = async () => {
         try {
-            // Make a POST request to the Azure Function
+            // Make a GET request to the Azure Function
             const response = await fetch('https://demo-koaa-roc.azurewebsites.net/api/ReactToNode', {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
