@@ -5,15 +5,15 @@ const App = () => {
 
     const callAzureFunction = async () => {
         try {
-            // Make a GET request to the Azure Function
+            // Make a POST request to the Azure Function
             const response = await fetch('https://demo-koaa-roc.azurewebsites.net/api/ReactToNode', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     endpoint: '/', // Endpoint on your Node.js backend
-                    method: 'GET', // HTTP method (GET, POST, etc.)
+                    method: 'POST', // HTTP method (GET, POST, etc.)
                     payload: { key: 'value' } // Data to send to your backend
                 }),
             });
