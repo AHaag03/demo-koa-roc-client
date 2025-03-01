@@ -6,7 +6,7 @@ const App = () => {
     const getData = async () => {
         try {
             // Send a GET request to the Azure Function
-            const response = await fetch('https://demo-koaa-roc.azurewebsites.net/api/function-name?name=ReactToNode');
+            const response = await fetch('https://demo-koaa-roc.azurewebsites.net/api/ReactToNode');
             if (!response.ok) {
                 throw new Error(`Azure Function returned status: ${response.status}`);
             }
