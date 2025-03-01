@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const App = () => {
     const [responseData, setResponseData] = useState(null);
-    const functionKey = process.env.REACT_APP_AZURE_FUNCTION_KEY;
+    const functionKey = process.env.REACT_APP_AZURE_FUNCTION_KEY || window.REACT_APP_AZURE_FUNCTION_KEY;
 
     const getData = async () => {
         try {
