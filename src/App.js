@@ -3,21 +3,10 @@ import React, { useState } from 'react';
 const App = () => {
     const [responseData, setResponseData] = useState(null);
 
-    const callAzureFunction = async () => {
+    const getData = async () => {
         try {
-            // Make a POST request to the Azure Function
-            const response = await fetch('https://demo-koaa-roc.azurewebsites.net/api/ReactToNode', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    endpoint: '/', // Endpoint on your Node.js backend
-                    method: 'POST', // HTTP method (GET, POST, etc.)
-                    payload: { key: 'value' } // Data to send to your backend
-                }),
-            });
-
+            // Send a GET request to the Azure Function
+            const response = await fetch('https://demo-koaa-roc.azurewebsites.net/api/function-name?name=ReactToNode');
             if (!response.ok) {
                 throw new Error(`Azure Function returned status: ${response.status}`);
             }
@@ -25,14 +14,14 @@ const App = () => {
             const data = await response.json();
             setResponseData(data);
         } catch (error) {
-            console.error("Error calling Azure Function:", error);
+            console.error("Error fetching data:", error);
         }
     };
 
     return (
         <div>
-            <h1>React to Azure Function Example</h1>
-            <button onClick={callAzureFunction}>Call Azure Function</button>
+            <h1>React + Azure Functions + Node.js Example</h1>
+            <button onClick={getData}>Get Data</button>
             {responseData && (
                 <pre>
                     <code>{JSON.stringify(responseData, null, 2)}</code>
