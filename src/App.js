@@ -13,7 +13,7 @@ const App = () => {
                 },
                 body: JSON.stringify({
                     endpoint: '/', // Endpoint on your Node.js backend
-                    method: 'POST', // HTTP method (GET, POST, etc.)
+                    method: 'GET', // HTTP method (GET, POST, etc.)
                     payload: { key: 'value' } // Data to send to your backend
                 }),
             });
