@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 const App = () => {
     const [responseData, setResponseData] = useState(null);
-    const functionKey = process.env.REACT_APP_AZURE_FUNCTION_KEY || window.REACT_APP_AZURE_FUNCTION_KEY;
+    // const functionKey = process.env.REACT_APP_AZURE_FUNCTION_KEY || window.REACT_APP_AZURE_FUNCTION_KEY;
 
     const getData = async () => {
         try {
             // Send a GET request to the Azure Function
-            const response = await fetch(`https://demo-koaa-roc.azurewebsites.net/api/ReactToNode?code=${functionKey}`);
-            console.debug(`Function Key: ${functionKey}`);
+            const response = await fetch(`https://demo-koaa-roc.azurewebsites.net/api/ReactToNode`);
+            // console.debug(`Function Key: ${functionKey}`);
             if (!response.ok) {
                 throw new Error(`Azure Function returned status: ${response.status}`);
             }
